@@ -9,10 +9,10 @@
 }
 
 :root {
-    --bg-color: #081b29;
-    --second-bg-color:#101010;
-    --text-color: rgba(10, 48, 131, 0.938);
-    --main-color: #47210b;
+    --bg-color: #06283D;          /* deep ocean blue */
+    --second-bg-color:#0A4D68;    /* lighter ocean */
+    --text-color: #EAF6FF;        /* soft white (hindi masakit sa mata) */
+    --main-color: #1d6796;        /* bright ocean accent */
 }
 
 html {
@@ -286,7 +286,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #df8908;
+    background-color: #0c385f;
     height: 500px;
     border-radius: 3rem;
     cursor: pointer;
@@ -333,10 +333,9 @@ section {
 
 .projects-box{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
     place-items: center;
-    gap: 3rem;
-    row-gap: 5rem;
 }
 
 .project-card{
@@ -345,16 +344,15 @@ section {
     align-items: center;
     text-align: center;
     background-color: var(--bg-color);
-    border:2px solid var(--main-color);
-    border-radius: 3rem;
+    border: 2px solid var(--main-color);
+    border-radius: 2rem;
     gap: 2rem;
-    padding: 5rem 2rem;
+    padding: 3rem;
     overflow: hidden;
     cursor: pointer;
     box-shadow: 0 0 5px var(--main-color);
     transition: 0.3s ease;
 }
-
 .project-card:hover{
     box-shadow: 0 0 25px var(--main-color),
                 0 0 50px var(--main-color);
@@ -426,7 +424,7 @@ section {
 }
 
 .footer ul li a{
-    color: white;
+    color: rgb(255, 255, 255);
     border-bottom: 3px solid transparent;
     transition: 0.3s ease-in-out;
 }
@@ -440,3 +438,94 @@ section {
     margin-top: 40px;
     font-size: 16px;
 }
+@media(max-width:800px){
+    #menu-icon{
+        dislay: block;
+    }
+    .navbar{
+        position:absolute;
+        top: 100;
+        right: 0;
+        width: 50%;
+        padding: 1rem 3rem;
+        background: rgba(0, 0, 0, 0.8);
+        border-bottom-left-radius: 2rem;
+        border-left: 2px solid var(--main-color);
+        border-bottom: 2px solid var(--main-color);
+        display: none;
+    }
+    .navbar a{
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        color: var(--text-color);
+    }
+    .navbar.active{
+        display: block;
+    }
+    .gradient-btn{
+        display: none;
+    }
+    .home{
+        flex-direction: column-reverse;
+        margin: 5rem 0;
+        gap: 5rem;
+    }
+    .home-content{
+        align-items: center;
+        text-align: center;
+    }
+    .home-img img{
+        width: 56vw;
+    }
+    .about h2{
+        text-align: center;
+        margin: 2rem 0;
+    }
+    .about img{
+        width: 52vw;
+    }
+    .contact{
+        flex-direction: column;
+        
+    }
+
+/* Floating animation */
+@keyframes floatImage {
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-20px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+/* Fade + zoom on load */
+@keyframes fadeZoom {
+    0%{
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.home-img img,
+.about-img img{
+    animation: fadeZoom 1s ease forwards, floatImage 4s ease-in-out infinite;
+}
+
+
+.home-img img:hover,
+.about-img img:hover{
+    transform: scale(1.1);
+}
+
+}
+
